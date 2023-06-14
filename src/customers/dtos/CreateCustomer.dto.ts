@@ -1,29 +1,29 @@
 import {
-	IsEmail,
-	IsNumberString,
-	IsNotEmptyObject,
-	ValidateNested,
-	IsString,
-	IsNotEmpty
+  IsEmail,
+  IsNumberString,
+  IsNotEmptyObject,
+  ValidateNested,
+  IsString,
+  IsNotEmpty,
 } from 'class-validator';
 import { CreateAddressDto } from './CreateAddressDto';
 import { Type } from 'class-transformer';
 
 export class CreateCustomerDto {
-	@IsEmail()
-	@IsNotEmpty()
-	email: string;
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
 
-	@IsNumberString()
-	@IsNotEmpty()
-	id: number;
+  @IsNumberString()
+  @IsNotEmpty()
+  id: number;
 
-	@IsNotEmpty()
-	@IsString()
-	name: string;
+  @IsNotEmpty()
+  @IsString()
+  name: string;
 
-	@ValidateNested()
-	@Type(() => CreateAddressDto)
-	@IsNotEmptyObject()
-	address?: CreateAddressDto;
+  @ValidateNested()
+  @Type(() => CreateAddressDto)
+  @IsNotEmptyObject()
+  address?: CreateAddressDto;
 }
